@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-beta1",
+  "description": "OpenID Connect and OAuth 2.0 Framework for ASP.NET 5 with MongoDB as persistence layer",
+  "authors": [ "Fredrik Strandin" ],
+  "tags": [ "IdentityServer", "MongoDB", "OpenID Connect", "OIDC", "OAuth 2.0", "ASP.NET", "WebApi", "SSO", "Federation", "Claims", "Identity" ],
+  "projectUrl": "https://github.com/fredrikstrandin/IdentityServer4.MongoDB",
+  "licenseUrl": "https://github.com/fredrikstrandin/IdentityServer4.MongoDB/blob/master/LICENSE",
+  "summary": "IdentityServer.MongoDB makes it posible to ädd MongoDB as persistence layer.",
+
+  "dependencies": {
+    "IdentityServer4": "1.0.0-beta1-update1",
+    "MongoDB.Driver": "2.2.3"
+  },
+  "frameworks": {
+    "net451": { }
+  }
+}
