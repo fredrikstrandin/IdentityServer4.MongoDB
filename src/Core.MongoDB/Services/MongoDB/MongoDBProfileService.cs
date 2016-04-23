@@ -1,4 +1,4 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+﻿// Copyright (c) Fredrik Strandin. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 using IdentityModel;
@@ -17,7 +17,7 @@ using IdentityServer4.MongoDB.Models;
 namespace IdentityServer4.Core.Services.MongoDB
 {
     /// <summary>
-    /// In-memory user service
+    /// MongoDB user service
     /// </summary>
     public class MongoDBProfileService : IProfileService
     {
