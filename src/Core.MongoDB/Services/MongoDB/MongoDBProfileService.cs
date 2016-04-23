@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using IdentityServer4.MongoDB.Models;
+using IdentityServer4.Core.MongoDB.Models;
 
 namespace IdentityServer4.Core.Services.MongoDB
 {

@@ -4,7 +4,7 @@ using IdentityServer4.MongoDB.Interface;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace IdentityServer4.MongoDB.Models
+namespace IdentityServer4.Core.MongoDB.Models
 {
     public class MongoDBUser : IMongoDBUser
     {
