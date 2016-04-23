@@ -41,16 +41,7 @@ namespace IdentityServer4.Core.Services.MongoDB
         /// <returns></returns>
         public async Task<bool> IsOriginAllowedAsync(string origin)
         {
-
             List<string> urls = await  _database.GetCollection<Client>(_collectionClients).Aggregate().Unwind<string>("AllowedCorsOrigins").ToListAsync();
-
-            ////This need to known the client. 
-            //var query =
-            //    from client in _database.GetCollection<Client>(_collectionClients).AsQueryable()
-            //        //from url in client.AllowedCorsOrigins
-            //    select client.AllowedCorsOrigins;
-
-            //var urls = query.ToList();
 
             var origins = urls.Select(x => x.GetOrigin()).Where(x => x != null).Distinct();
 
