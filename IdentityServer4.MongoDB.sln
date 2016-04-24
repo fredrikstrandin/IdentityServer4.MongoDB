@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{921E673D-7
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IdSvrHost.MongoDB", "IdSvrHost.MongoDB\IdSvrHost.MongoDB.xproj", "{3BC068D8-3623-4ADE-AAC3-AFC69AB918C0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{A20406CA-6BA6-4EFB-9CC7-59F367848BB3}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "IdentityServer4", "..\IdentityServer4\src\IdentityServer4\IdentityServer4.xproj", "{84F3B97E-7505-4DB3-9433-ECBF55DBCC2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{3BC068D8-3623-4ADE-AAC3-AFC69AB918C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BC068D8-3623-4ADE-AAC3-AFC69AB918C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BC068D8-3623-4ADE-AAC3-AFC69AB918C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84F3B97E-7505-4DB3-9433-ECBF55DBCC2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84F3B97E-7505-4DB3-9433-ECBF55DBCC2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84F3B97E-7505-4DB3-9433-ECBF55DBCC2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84F3B97E-7505-4DB3-9433-ECBF55DBCC2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,5 +46,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{704906BF-485F-49F4-A8CF-C75BA370C797} = {903024E6-B341-446A-8E17-CC476BF2A404}
 		{3BC068D8-3623-4ADE-AAC3-AFC69AB918C0} = {921E673D-7D22-487B-8533-177A5D64D024}
+		{84F3B97E-7505-4DB3-9433-ECBF55DBCC2A} = {A20406CA-6BA6-4EFB-9CC7-59F367848BB3}
 	EndGlobalSection
 EndGlobal

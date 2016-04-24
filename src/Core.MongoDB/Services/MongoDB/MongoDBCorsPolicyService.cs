@@ -2,7 +2,6 @@
 // This is based on InMemoryCorsPolicyService from IdentityServer
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using IdentityServer4.Core.Extensions;
 using IdentityServer4.Core.Models;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,6 +10,8 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Bson;
+using IdentityServer4.Core.MongoDB.Models;
 
 namespace IdentityServer4.Core.Services.MongoDB
 {
@@ -41,9 +42,19 @@ namespace IdentityServer4.Core.Services.MongoDB
         /// <returns></returns>
         public async Task<bool> IsOriginAllowedAsync(string origin)
         {
-            List<string> urls = await  _database.GetCollection<Client>(_collectionClients).Aggregate().Unwind<string>("AllowedCorsOrigins").ToListAsync();
+            var urls = await _database.GetCollection<Client>(_collectionClients)
+                .Aggregate()
+                .Unwind(x => x.AllowedCorsOrigins, new AggregateUnwindOptions<Client>() { PreserveNullAndEmptyArrays = true })
+                       .Project<CorsOrigin>(Builders<Client>.Projection
+                                                .Include("AllowedCorsOrigins")
+                                                .Exclude("_id"))
+                .ToListAsync();
 
-            var origins = urls.Select(x => x.GetOrigin()).Where(x => x != null).Distinct();
+            foreach (CorsOrigin item in urls)
+            {
+                _logger.LogInformation(item.AllowedCorsOrigins.GetOrigin() ?? "");
+            }
+            var origins = urls.Select(x => x.AllowedCorsOrigins.GetOrigin()).Where(x => x != null).Distinct();
 
             var result = origins.Contains(origin, StringComparer.OrdinalIgnoreCase);
 
@@ -56,6 +67,8 @@ namespace IdentityServer4.Core.Services.MongoDB
             }
 
             return await Task.FromResult(result);
+
+            //return await Task.FromResult(true);
         }
     }
 }

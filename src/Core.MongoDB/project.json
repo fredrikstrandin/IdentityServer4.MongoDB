@@ -8,7 +8,7 @@
   "summary": "IdentityServer.MongoDB makes it posible to ädd MongoDB as persistence layer.",
 
   "dependencies": {
-    "IdentityServer4": "1.0.0-beta1-update1",
+    "IdentityServer4": "",
     "MongoDB.Driver": "2.2.3"
   },
   "frameworks": {
