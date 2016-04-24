@@ -13,7 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static string GetOrigin(this string url)
         {
-            if (url != null && (url.StartsWith("http://") || url.StartsWith("https://")))
+            if (url != null && (url.StartsWith("http://") || url.StartsWith("https://") || url.StartsWith("chrome-extension://")))
             {
                 var idx = url.IndexOf("//", StringComparison.Ordinal);
                 if (idx > 0)

@@ -50,11 +50,9 @@ namespace IdentityServer4.Core.Services.MongoDB
                                                 .Exclude("_id"))
                 .ToListAsync();
 
-            foreach (CorsOrigin item in urls)
-            {
-                _logger.LogInformation(item.AllowedCorsOrigins.GetOrigin() ?? "");
-            }
-            var origins = urls.Select(x => x.AllowedCorsOrigins.GetOrigin()).Where(x => x != null).Distinct();
+            var origins = urls.Select(x => x.AllowedCorsOrigins.GetOrigin())
+                .Where(x => x != null)
+                .Distinct();
 
             var result = origins.Contains(origin, StringComparer.OrdinalIgnoreCase);
 
